@@ -1,1 +1,1 @@
-# text2img
+# hatatori.github.io/text2img
