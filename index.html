@@ -1,0 +1,249 @@
+<style>
+	#escolha{
+		width: 300;
+		height: 300;
+		overflow: auto;
+	}
+</style>
+
+
+
+<div id="opcao">
+	<label><input id="opv" type="radio" name="op" checked>Vertical</label>
+	<label><input type="radio" name="op">Horizontal</label>
+</div>
+
+<input type="" name="" id='inp'>
+<br><br>
+<textarea id="txt" style="width: 400;height: 300"></textarea>
+
+<div id="box"></div>
+
+<script>
+	
+a = `01110
+10001
+11111
+10001
+10001`
+
+b = `11110
+01001
+01110
+01001
+11110`
+
+c = `01110
+10000
+10000
+10000
+01110`
+
+d = `11110
+01001
+01001
+01001
+11110`
+
+e = `01111
+10000
+11111
+10000
+01111`
+
+f = `01111
+10000
+11100
+10000
+10000`
+
+g = `01111
+10000
+10011
+10001
+01110`
+
+h = `10001
+10001
+11111
+10001
+10001`
+
+i = `01110
+00100
+00100
+00100
+01110`
+
+j = `00001
+00001
+10001
+10001
+01110`
+
+k = `10010
+10100
+11000
+10100
+10010`
+
+l = `10000
+10000
+10000
+10000
+11110`
+
+m = `10001
+11011
+10101
+10001
+10001`
+
+n = `10001
+11001
+10101
+10011
+10001`
+
+o = `01110
+10001
+10001
+10001
+01110`
+
+p = `11110
+10001
+11110
+10000
+10000`
+
+q = `01110
+10001
+10001
+10010
+01101`
+
+r = `11100
+10010
+11100
+10010
+10010`
+
+s = `01111
+10000
+01110
+00001
+11110`
+
+t = `11111
+00100
+00100
+00100
+00100`
+
+u = `10001
+10001
+10001
+10001
+01110`
+
+v = `10001
+10001
+10001
+01010
+00100`
+
+w = `10001
+10001
+10101
+10101
+01010`
+
+x = `10001
+01010
+00100
+01010
+10001`
+
+y = `10001
+01010
+00100
+00100
+00100`
+
+z = `11111
+00010
+00100
+01000
+11111`
+
+zz = `
+
+
+`
+
+
+	function text2imgW(str){
+		texto = []
+		x = str.split("").map(ee=>{return eval(ee)
+			.replace(/1/g,"🔥")
+			.replace(/0/g,"◾")})
+
+	// de lado
+
+	x0 = []
+	x1 = []
+	x2 = []   
+	x3 = []
+	x4 = []
+
+
+	for(ii=0;ii<x.length;ii++){
+		x0.push(x[ii].split("\n")[0])
+		x1.push(x[ii].split("\n")[1])
+		x2.push(x[ii].split("\n")[2])
+		x3.push(x[ii].split("\n")[3])
+		x4.push(x[ii].split("\n")[4])
+	}
+
+	l0 = x0.join("\t")
+	l1 = x1.join("\t")
+	l2 = x2.join("\t")
+	l3 = x3.join("\t")
+	l4 = x4.join("\t")
+
+	textao = l0+"\n"+l1+"\n"+l2+"\n"+l3+"\n"+l4
+
+	// fim de lado
+	
+	// return x.join("\n\n")
+	return textao
+}
+
+function text2imgH(str){
+		texto = []
+		x = str.split("").map(ee=>{return eval(ee)
+			.replace(/1/g,"🔥")
+			.replace(/0/g,"◾")})
+	
+	return x.join("\n\n")
+	// return textao
+}
+
+
+
+inp.onkeyup=function(e){ atualiza() }
+opcao.onclick=function(e){ atualiza() }
+
+function atualiza(){
+	if(opv.checked){
+		txt.value = text2imgH(inp.value)
+		box.innerHTML = text2imgH(inp.value).replace(/\n/g,"<br>")
+	}
+	else{
+		txt.value = text2imgW(inp.value)
+		box.innerHTML = text2imgW(inp.value).replace(/\n/g,"<br>")
+	}
+}
+
+</script>
