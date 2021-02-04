@@ -1,1 +1,1 @@
-# hatatori.github.io/text2img
+# https://hatatori.github.io/text2img/
